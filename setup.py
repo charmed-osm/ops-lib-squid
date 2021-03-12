@@ -42,7 +42,7 @@ setuptools.setup(
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     url="https://github.com/charmed-osm/ops-lib-squid",
-    packages=["opslib.squid"],
+    packages=["opslib.squid", "opslib.squid.templates"],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Programming Language :: Python :: 3 :: Only",
@@ -60,4 +60,5 @@ setuptools.setup(
     python_requires=">=3.6",
     install_requires=install_requires,
     dependency_links=dependency_links,
+    package_data={"opslib.squid.templates": ["squid.conf"]}
 )
