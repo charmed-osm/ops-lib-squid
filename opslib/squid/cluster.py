@@ -11,6 +11,8 @@ try:
 except ImportError:
     # Try backported to PY<37 `importlib_resources`.
     import importlib_resources as pkg_resources
+
+
 class SquidCluster(ops.framework.Object):
     """Peer relation object for Squid"""
 
@@ -76,7 +78,7 @@ class SquidCluster(ops.framework.Object):
     def _generate_allowedurls_config(self, allowed_urls: set):
         allowed_urls_text = ""
         for url in allowed_urls:
-            allowed_urls_text += f"acl allowedurls dstdomain .{url}\n"
+            allowed_urls_text += f"acl allowedurls dstdomain {url}\n"
         if allowed_urls:
             allowed_urls_text += "http_access allow allowedurls\n"
         return allowed_urls_text
